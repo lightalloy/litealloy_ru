@@ -3,6 +3,7 @@ set :domain, "light@178.79.155.190"
 set :deploy_to, "/srv/www/#{application}"
 set :use_sudo, false
 
+ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa_linode_light")]
 
 set :scm, :git
 set :repository,  "http://git.s3n.su/repos/litealloy.git"
