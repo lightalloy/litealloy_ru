@@ -6,7 +6,7 @@ set :use_sudo, false
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa_linode_light")]
 
 set :scm, :git
-set :repository,  "http://git.s3n.su/repos/litealloy.git"
+set :repository,  "git@git.s3n.su:litealloy_ru.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
 
