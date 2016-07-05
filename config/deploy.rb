@@ -1,18 +1,23 @@
-set :application, "litealloy"
-set :domain, "light@178.79.155.190"
-set :deploy_to, "/srv/www/#{application}"
-set :use_sudo, false
+set :application, "litealloy_ru"
 
-ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa_linode_light")]
+set :repo_url, 'git@git.s3n.su:light/litealloy_ru.git'
+set :user, 'light'
+
+set :deploy_to, '/home/light/sites/litealloy_ru'
 
 set :scm, :git
-set :repository,  "git@git.s3n.su:litealloy_ru.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
 
-role :web, domain
-role :app, domain
-role :db,  domain, :primary => true
+role :app, %w{s3n.su}
+role :web, %w{s3n.su}
+role :db,  %w{s3n.su}
+
+# role :app, %w{deploy@example.com}, my_property: :my_value
+# role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
+# role :db,  %w{deploy@example.com}
+
+server 's3n.su', user: 'light', roles: %w{web app}#, my_property: :my_value
 
 namespace :deploy do
   task :migrate do
