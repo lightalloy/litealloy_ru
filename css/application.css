@@ -10,6 +10,6 @@ a { color: #3273dc; }
     max-width: 600px;
 }
 
-.projects div{
-    margin-bottom: 5px;
-}
+.container h1 { font-weight: 100; }
+
+.m-b-small { margin-bottom: 0.5rem; }

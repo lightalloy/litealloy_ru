@@ -6,7 +6,7 @@ set :user, 'light'
 set :deploy_to, '/home/light/sites/litealloy_ru'
 
 set :scm, :git
-set :branch, "master"
+set :branch, 'master'
 set :deploy_via, :remote_cache
 
 role :app, %w{s3n.su}
@@ -17,7 +17,7 @@ role :db,  %w{s3n.su}
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
-server 's3n.su', user: 'light', roles: %w{web app}#, my_property: :my_value
+server 's3n.su', user: 'light', roles: %w[web app]# , my_property: :my_value
 
 namespace :deploy do
   task :migrate do
